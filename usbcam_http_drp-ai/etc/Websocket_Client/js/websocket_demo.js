@@ -7,7 +7,7 @@
  */
 
 // let socket = new WebSocket('ws://localhost:3000/ws/', 'graph-update');
-let socket = new WebSocket('ws://192.168.1.11:3000/ws/');
+let socket = null;
 let predCanvas = document.getElementById('pred_canvas');
 let defaultCanvas = document.getElementById('default_canvas');
 let predCtx = document.getElementById('pred_canvas').getContext('2d');
@@ -82,7 +82,12 @@ let model = document.getElementById('change_model');
 model.addEventListener('change', inputChange);
 
 function inputChange(event) {
-  // console.log(event.currentTarget.value);
+  // Handle empty value.  Will cause application to segfault if bad value
+  if (!event.currentTarget.value)
+  {
+    return;
+  }
+
   socket.send(JSON.stringify({
     command_name: 'change_model',
     Value: {
@@ -90,6 +95,9 @@ function inputChange(event) {
     }
   }));
 }
+
+let connectButton = document.getElementById('connectButton');
+connectButton.onclick = connect;
 
 // Pose Estimation: Line Drawing
 function drawLine(ctx, pts, start, end, ratio_x, ratio_y) {
@@ -152,7 +160,8 @@ function measureProcessingTime(ctx, nowTime) {
   // console.log('----------------------------------------');
 }
 
-$(() => {
+function connect () {
+  socket = new WebSocket('ws://' + document.getElementsByName('deviceIP')[0].value + ':3000/ws/');
   socket.onmessage = function (event) {
     // Calculate process time
     let nowTime = moment();
@@ -385,4 +394,23 @@ $(() => {
       drpWindowData.value = drpData;
     }
   }
-})
+
+  socket.onopen = ()=> { 
+    if (model.value)
+    {
+      socket.send(JSON.stringify({
+        command_name: 'change_model',
+        Value: {
+          model: model.value
+        }
+      }));
+    }
+
+    connectButton.innerText = "Connected!";
+  }
+
+  socket.onclose = () => {
+    connectButton.innerText = "Connect";
+  }
+
+}
