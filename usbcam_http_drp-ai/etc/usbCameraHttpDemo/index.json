@@ -1,0 +1,4 @@
+{
+    "demoName": "USB Camera HTTP Demo",
+    "demoDescription": "A collection of AI classification demos streaming video output over HTTP."
+}
