@@ -1,5 +1,5 @@
 // Require demo baseclass script
-const DemoBase = require("../../demobase")
+const DemoBase = require(`${global.__basedir}/demobase.js`)
 
 // Create demo class
 class USBCameraHTTPDemp extends DemoBase {
