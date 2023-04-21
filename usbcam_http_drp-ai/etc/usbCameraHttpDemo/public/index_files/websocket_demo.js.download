@@ -7,7 +7,7 @@
  */
 
 // let socket = new WebSocket('ws://localhost:3000/ws/', 'graph-update');
-let socket = new WebSocket('ws://192.168.1.11:3000/ws/');
+let socket = new WebSocket('ws://' + window.location.hostname + ':3000/ws/');
 let predCanvas = document.getElementById('pred_canvas');
 let defaultCanvas = document.getElementById('default_canvas');
 let predCtx = document.getElementById('pred_canvas').getContext('2d');
@@ -57,6 +57,7 @@ let graphChart = new Chart(graphCtx, {
       {
         label: 'CPU 1 Usage[%]',
         data: [],
+
         borderColor: 'deepskyblue',
         backgroundColor: 'rgba(0,0,0,0)'
       }
@@ -73,11 +74,19 @@ let graphChart = new Chart(graphCtx, {
     scales: {
       y: {
         ticks: {
-          color: "white"
+          color: "grey"
+        },
+        grid: {
+          color: "grey"
         },
         type: 'linear',
         min: 0,
         max: 100
+      },
+      x: {
+        grid: {
+          color: "grey"
+        }
       }
     },
     animation: {

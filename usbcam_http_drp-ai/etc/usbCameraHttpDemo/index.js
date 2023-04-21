@@ -1,5 +1,5 @@
 // Require demo baseclass script
-const DemoBase = require(`${global.__basedir}/demobase.js`)
+const DemoBase = require("../../demobase")
 
 // Create demo class
 class USBCameraHTTPDemp extends DemoBase {
@@ -20,7 +20,7 @@ class USBCameraHTTPDemp extends DemoBase {
     // Handle when request to start demo is received
     startDemo(data) {
         // Run a process on hardware to print all devices
-        this.startProcess("/home/root/usb_http_demo/start.sh", [])
+        this.startProcess("cd /home/root/usb_http_demo && ./usb_http_demo", [])
     }
 
     // Handle when request to stop demo is received

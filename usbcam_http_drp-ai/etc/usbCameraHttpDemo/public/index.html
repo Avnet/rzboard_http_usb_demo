@@ -1,24 +1,16 @@
-<!--
- * index.html
- *
- * Copyright (c) 2019 Renesas Electronics Corp. 
- * This software is released under the MIT License,
- * see https://opensource.org/licenses/MIT
- -->
-
 <!DOCTYPE html>
-
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
+<!-- saved from url=(0070)file:///C:/Users/016424/OneDrive%20-%20Avnet/Documents/TEST/index.html -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <title>WebSocket Demo</title>
-    <link rel="stylesheet" href="./libs/bootstrap.min.css" />
-    <link rel="stylesheet" href="./css/websocket_demo.css" />
+    <link rel="stylesheet" href="./index_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./index_files/websocket_demo.css">
   </head>
 
   <body>
     <div>
-      <h1 id="title">DRP-AI USB Camera HTTP Demo</h1>
+      <img src="./images/Avnet_logo_no-tagline_rgb_rev1.png" style="margin-left:20px; margin-top:12px;" class="img-fluid" alt="Avnet">
+      <h1 id="title">RZBoard V2L : DRP-AI USB Camera HTTP Demo</h1>
     </div>
 
     <div class="container-fluid">
@@ -36,7 +28,7 @@
           <div class="movie">
             <canvas id="pred_canvas" width="640" height="480"></canvas>
             <div class="movie_info">
-              <p class="subtitle">Inferene Result</p>
+              <p class="subtitle">Inference Result</p>
               <p class="now_time">00:00:00</p>
             </div>
           </div>
@@ -46,7 +38,7 @@
       <div class="row">
         <div class="col-xl-6 side_left">
           <div class="graph">
-            <canvas id="graph_canvas" width="640" height="320"></canvas>
+            <canvas id="graph_canvas" width="533" height="265" style="display: block; box-sizing: border-box; height: 318px; width: 639.6px;"></canvas>
           </div>
         </div>
         <div class="col-xl-6 side_right">
@@ -54,7 +46,7 @@
             <div id="pulldown">
               <label>Selected AI Model
                 <select name="change_model" id="change_model">
-                  <option value="" hidden>select model...</option>
+                  <option value="" hidden="">select model...</option>
                   <option value="YOLOv3">YOLOv3</option>
                   <option value="HRNet">HRNet</option>
                   <option value="ResNet50">ResNet50</option>
@@ -62,16 +54,13 @@
                 </select>
               </label>
             </div>
-            <div>
-              <button id="connectButton">Connect</button>
-             </div>
             <div class="text_info">
               <div class="col-xl-6 text_left">
                 <p class="subtitle">Detection Info</p>
                 <textarea id="pred_window"></textarea>
               </div>
               <div class="col-xl-6 text_right">
-                <p class="subtitle">Proc Time</p>
+                <p class="subtitle">Processing Time</p>
                 <textarea id="drp_window"></textarea>
               </div>
             </div>
@@ -80,10 +69,11 @@
       </div>
     </div>
 
-    <script src="./libs/jquery-3.4.1.min.js"></script>
-    <script src="./libs/bootstrap.min.js"></script>
-    <script src="./libs/Chart.min.js"></script>
-    <script src="./libs/moment.min.js"></script>
-    <script src="./js/websocket_demo.js"></script>
-  </body>
-</html>
+    <script src="./index_files/jquery-3.4.1.min.js.download"></script>
+    <script src="./index_files/bootstrap.min.js.download"></script>
+    <script src="./index_files/Chart.min.js.download"></script>
+    <script src="./index_files/moment.min.js.download"></script>
+    <script src="./index_files/websocket_demo.js.download"></script>
+  
+
+</body></html>
