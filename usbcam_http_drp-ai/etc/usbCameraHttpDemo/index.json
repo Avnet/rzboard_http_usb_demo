@@ -2,7 +2,7 @@
 	"name": "USB Camera HTTP Demo",
     	"description": "A collection of AI classification demos streaming video output over HTTP.",
 	"process": {
-	    "command": "./usb_camera_http_demp",
+	    "command": "./usb_camera_http_demo",
 	    "cwd": "/home/root/usb_cam_http",
 	    "args": [
 	    ],
